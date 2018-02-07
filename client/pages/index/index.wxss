@@ -1,0 +1,188 @@
+@import "../common.wxss";
+
+page{
+  background-color: #E3E3E3;
+}
+swiper{
+  height: 360rpx;
+}
+swiper .slide-image{
+  height:360rpx;
+  width:750rpx;
+}
+
+
+/* 活期宝 begin  */
+.hqb_view{
+  background-color: #fff;
+  margin-top:20rpx;
+  padding:20rpx;
+}
+.hqb_view text{
+  text-align: center;
+  display: block;
+  margin-top:10rpx;  
+}
+.hqb_view .title{
+  color:#233142;
+  font-size: 60rpx;
+}
+.hqb_view .gray_text{
+  font-size: 28rpx;
+  color:#455D7A;
+}
+.hqb_view .big_text{
+  color:#F95959;
+  font-size: 80rpx;
+  font-weight: bold;
+}
+.hqb_view .big_text text{
+  display: inline-block;
+  font-size: 40rpx;
+}
+.hqb_view .card_list{
+  text-align: center;
+  margin-top:20rpx;
+}
+.hqb_view .card_list .tab_card{
+ color:#F95959;
+ font-size: 30rpx;
+ border:1px solid #F95959;
+ border-radius:24rpx;
+ display: inline-block;
+ padding:5rpx 15rpx;
+ margin:0 10rpx;
+}
+
+/* 活期宝 end  */
+
+/* 推荐基金 begin  */
+.index_fund_list .card_title{
+  border-left:5rpx solid #233142;
+  color:#233142;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin:20rpx;
+  padding-left:20rpx;
+}
+.fund_list .fund_item{
+  position: relative;
+  color:#233142;
+}
+.fund_list .fund_item{
+  background-color: #fff;
+  padding:30rpx;
+  margin-bottom: 15rpx;
+}
+.fund_list .fund_item .fund_name{
+  font-size: 36rpx;
+  margin-bottom:10rpx;
+}
+.fund_list .fund_item .fund_name text{
+  vertical-align: middle;
+  display: inline-block;
+  padding-left:15rpx;
+  
+}
+.fund_list .fund_item .fund_name .fund_type{
+  vertical-align: middle;
+  color:#F95959;
+  border:1px solid #F95959;
+  display: inline-block;
+  border-radius: 10rpx;
+  height: 38rpx;
+  width:38rpx;
+  text-align: center;
+  line-height: 38rpx;
+  font-size: 28rpx;
+}
+.fund_list .fund_item .context{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:10rpx;
+}
+.fund_list .fund_item .left{
+  font-size: 26rpx;
+  color:#555;
+}
+.fund_list .fund_item .left>text,
+.fund_list .fund_item .left .rate_text
+{
+  display: block;
+  margin-bottom:5rpx;
+  line-height:46rpx;
+  font-size:26rpx;
+}
+.fund_list .fund_item .left .rate_text .no_text{
+  text-decoration: line-through;
+  margin:0 10rpx;
+}
+.fund_list .fund_item .left .rate_text .account_text{
+  color:#F95959;
+}
+.fund_list .fund_item .left>text::before,
+.fund_list .fund_item .left .rate_text::before{
+  content:"";
+  display: inline-block;
+  height: 8rpx;
+  width:8rpx;
+  background-color: #233142;
+  border-radius: 50%;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.fund_list .fund_item .left .rate_text text{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fund_list .fund_item .context .right .earnings{
+  color:#F95959;
+  font-size: 60rpx;
+}
+.fund_list .fund_item .context .right{
+  text-align: center;
+}
+.fund_list .fund_item .context .right .earnings{
+  font-weight: bold;
+}
+.fund_list .fund_item .context .right .earnings text{
+  font-size: 30rpx;
+}
+.fund_list .fund_item .context .right .time{
+  display: block;
+  font-size: 24rpx;
+  color:#555;
+}
+
+.good_fund_list .fund_item::after{
+  content:"";
+  display: inline-block;
+  position: absolute;
+  top:0;
+  right:0;
+  height: 80rpx;
+  width:80rpx;
+  background: url('http://192.168.1.211:3000/fund_good_icon.png') 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.new_fund_list .fund_item::after{
+  content:"";
+  display: inline-block;
+  position: absolute;
+  top:0;
+  right:0;
+  height: 80rpx;
+  width:80rpx;
+  background: url('http://192.168.1.211:3000/fund_new_icon.png') 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+/* 推荐基金 end  */
+
+.certificate_img image{
+  width:100%;
+  height: 600rpx;
+}

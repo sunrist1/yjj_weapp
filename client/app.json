@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/publicFundDetail/publicFundDetail",
+    "pages/index/index",
+    "pages/list/list",
+    "pages/news/news",
+    "pages/addCgi/addCgi"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#455D7A",
+    "navigationBarTitleText": "亿基金",
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 80,
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#F95959",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "asset/images/home.png",
+        "selectedIconPath": "asset/images/home_2.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "基金",
+        "iconPath": "asset/images/list.png",
+        "selectedIconPath": "asset/images/list_2.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "发现",
+        "iconPath": "asset/images/news.png",
+        "selectedIconPath": "asset/images/news_2.png"
+      }
+    ]
+  }
+}

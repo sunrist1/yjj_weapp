@@ -1,0 +1,87 @@
+<view>
+  <swiper indicator-dots="{{swiper.indicatorDots}}"
+  autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+  <!-- <block wx:for="{{carouselImgList}}" wx:key="*this"> -->
+     <swiper-item> 
+      <image src="https://app1.efoundation.com.cn/upload/article/0f01630e-debb-4453-af51-121906bbe5a8.jpg" mode='scaleToFill' class="slide-image" bindtap='toList'/>
+      <!-- <image src="{{item}}" mode='scaleToFill' class="slide-image"/> -->
+     </swiper-item> 
+  <!-- </block> -->
+</swiper>
+
+<!-- 活期宝  -->
+<view class='hqb_view'>
+  <text class='title'>活期宝</text>
+  <text class='gray_text'>万份收益(元) {{hqbData.fundincomeunit}}</text>
+  <text class='big_text'>{{hqbData.growthrate * 100}}<text>%</text></text>
+  <text class='gray_text'>七日年化({{hqbData.navdateStr}})</text>
+  <view class='card_list'>
+    <view class='tab_card'>取现快速到账</view>
+    <view class='tab_card'>资金全程监督</view>
+    <view class='tab_card'>起存门槛低</view>
+  </view>
+</view>
+
+<!-- 推荐基金  -->
+<view class='index_fund_list'>
+  <view class='card_title'>优选基金</view>
+  <view class='fund_list good_fund_list'>
+    <block wx:for="{{goodFundList}}" wx:key="*this" wx:for-item="item">
+      <view class='fund_item'>
+        <view class='fund_name'>
+          <view class='fund_type'>
+            {{item.shortFundType}}
+          </view>
+          <text>{{item.fundName}}</text>
+        </view>
+        <view class='context'>
+          <view class='left'>
+            <text class='fund_code'>({{item.fundCode}})</text>
+            <!-- <view class='rate_text'>
+              费率<text class='no_text'>1.5%</text><text class='account_text'>0.15%</text>
+            </view> -->
+            <text class='recommend_test'>{{item.recommendedReviews}}</text>
+          </view>
+          <view class='right'>
+            <text class="earnings {{item.sixMInterest>=0?'fc_orange':'fc_green'}}">{{item.sixMInterest}}<text>%</text></text>
+            <text class='time'>近半年</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class='card_title'>新手基金</view>
+  <view class='fund_list new_fund_list'>
+    <block wx:for="{{newHandFund}}" wx:key="*this" wx:for-item="item">
+      <view class='fund_item'>
+        <view class='fund_name'>
+          <view class='fund_type'>
+            {{item.shortFundType}}
+          </view>
+          <text>{{item.fundName}}</text>
+        </view>
+        <view class='context'>
+          <view class='left'>
+            <text class='fund_code'>({{item.fundCode}})</text>
+            <!-- <view class='rate_text'>
+              费率<text class='no_text'>1.5%</text><text class='account_text'>0.15%</text>
+            </view> -->
+            <text class='recommend_test'>{{item.recommendedReviews}}</text>
+          </view>
+          <view class='right'>
+            <text class="earnings {{item.sixMInterest>=0?'fc_orange':'fc_green'}}">{{item.threeMInterest}}<text>%</text></text>
+            <text class='time'>近三月</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!--底部证书展示  -->
+<view class='certificate_img'>
+  <image src='{{certificateImgSrc}}' mode='scaleToFill'></image>
+</view>
+
+</view>

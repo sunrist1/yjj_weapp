@@ -1,0 +1,18 @@
+<view class='page'>
+  <image class='topImg' src='{{topImgSrc}}' mode='aspectFill'></image>
+
+  <view class='news_list'>
+    <block wx:for="{{newsCacheList}}" wx:key="*this" wx:for-item="item">
+      <view class='news_item'>
+        <view class='left'>
+          <text class='title'>{{item.title}}</text>
+          <view class='des_context'>
+            <text class='type'>{{item.type}}</text>
+            <text class='time'>{{item.time}}</text>
+          </view>
+        </view>
+        <image class='right' src='{{item.imgUrl}}' mode='aspectFill'></image>
+      </view>
+    </block>
+  </view>
+</view>

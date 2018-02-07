@@ -1,0 +1,88 @@
+<view class='page'>
+  <!--基金类型列表  -->
+  <view class='type_list'>
+    <scroll-view class='scroll_box' scroll-x>
+      <view class="type_item {{fundType==''?'fc_orange':''}}" bindtap="changeFundType" data-type=''>全部</view>
+      <view class="type_item {{fundType=='0'?'fc_orange':''}}" bindtap="changeFundType" data-type='0'>股票型</view>
+      <view class="type_item {{fundType=='1'?'fc_orange':''}}" bindtap="changeFundType" data-type='1'>债券型</view>
+      <view class="type_item {{fundType=='41'?'fc_orange':''}}" bindtap="changeFundType" data-type='41'>货币型</view>
+      <view class="type_item {{fundType=='3'?'fc_orange':''}}" bindtap="changeFundType" data-type='3'>混合型</view>
+      <view class="type_item {{fundType=='5'?'fc_orange':''}}" bindtap="changeFundType" data-type='5'>指数型</view>
+      <view class="type_item {{fundType=='6'?'fc_orange':''}}" bindtap="changeFundType" data-type='6'>QDII</view>
+      <view class="type_item {{fundType=='8'?'fc_orange':''}}" bindtap="changeFundType" data-type='8'>保本型</view>
+    </scroll-view>
+
+    <view class='search_btn'>
+      <image src='{{searchImgUrl}}' mode='scaleToFill'></image>
+    </view>
+  </view>
+
+  <!-- 基金列表  -->
+  <view class='fund_list'>
+    <view class='fundname_list'>
+      <view class='title'>基金名称</view>
+      <block wx:for="{{publicFundList}}" wx:key="*this" wx:for-item="item">
+        <view class='item fund_name' bindtap='toDetail'>
+          <view class='type'>{{item.typeShortName}}</view>
+          <view class='context'>
+            <text class='name'>{{item.fundShortName}}</text>
+            <text class='code'>{{item.fundCode}}</text>
+          </view>
+        </view>
+      </block>
+      
+    </view>
+
+    <scroll-view class='scroll_box' style='height:{{publicFundList.length * 102}}rpx' scroll-x scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class='title'>
+        <view>最新净值</view>
+        <view bindtap="changeSortType" data-sort="dayInterest">
+          日涨跌
+          <image src="{{sort=='dayInterest'?activeSortImgSrc:sortImgSrc}}"></image>
+        </view>
+        <view bindtap="changeSortType" data-sort="oneMInterest">
+          近一月
+          <image src="{{sort=='oneMInterest'?activeSortImgSrc:sortImgSrc}}"></image>
+        </view>
+        <view bindtap="changeSortType" data-sort="threeMInterest">
+          近三月
+          <image src="{{sort=='threeMInterest'?activeSortImgSrc:sortImgSrc}}"></image>
+        </view>
+        <view bindtap="changeSortType" data-sort="sixMInterest">
+          近半年
+          <image src="{{sort=='sixMInterest'?activeSortImgSrc:sortImgSrc}}"></image>
+        </view>
+        <view bindtap="changeSortType" data-sort="yearInterest">
+          近一年
+          <image src="{{sort=='yearInterest'?activeSortImgSrc:sortImgSrc}}"></image>
+        </view>
+      </view>
+      <block wx:for="{{publicFundList}}" wx:key="*this" wx:for-item="item">
+        <view class='item'>
+          <!-- 基金净值  -->
+          <view class='netWorth_box'>
+            <text class='netWorth'>{{item.netWorth}}</text>
+            <text class='netWorthDate'>{{item.updateDateTimeUTC}}</text>
+          </view>
+
+          <!--日涨跌  -->
+          <view class="{{item.dayInterest >= 0?'fc_orange':'fc_green'}}"> {{item.dayInterest}}% </view>
+
+          <!--月涨跌  -->
+          <view class="{{item.oneMInterest >= 0?'fc_orange':'fc_green'}}"> {{item.oneMInterest}}% </view>
+
+          <!--三月涨跌  -->
+          <view class="{{item.threeMInterest >= 0?'fc_orange':'fc_green'}}"> {{item.threeMInterest}}% </view>
+
+          <!--半年涨跌  -->
+          <view class="{{item.sixMInterest >= 0?'fc_orange':'fc_green'}}"> {{item.sixMInterest}}% </view>
+
+          <!--一年涨跌  -->
+          <view class="{{item.yearInterest > 0?'fc_orange':'fc_green'}}"> {{item.yearInterest}}% </view>
+
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+</view>

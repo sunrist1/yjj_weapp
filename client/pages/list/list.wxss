@@ -1,0 +1,185 @@
+@import "../common.wxss";
+
+page{
+  height: 100%;
+  background-color: #edf0f5;
+}
+.type_list{
+  position: fixed;
+  z-index: 999;
+  top:0;
+  left: 0;
+  border-bottom: 2rpx solid #eee;
+  box-shadow: 2rpx 2rpx 3rpx 3rpx #eee;
+  height: 80rpx;
+  background-color: #fff;
+  width:100%;
+}
+.scroll_box{
+   white-space: nowrap;
+   width: 88%;
+   height: 80rpx;
+}
+.type_item{
+  display: inline-block;
+  width:150rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+} 
+.search_btn{
+  position: absolute;
+  right: 0;
+  top:0;
+  width:12%;
+  text-align: center;
+  padding-top:10rpx;
+  box-sizing: border-box;
+  box-shadow: -2rpx -2rpx 3rpx 3rpx #eee;
+  height: 80rpx;
+}
+.search_btn image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.fund_list{
+  margin-top: 80rpx;
+}
+.fund_list .fundname_list{
+  width:35%;
+  display: inline-block;
+  vertical-align: top;
+  border-right:1rpx solid #fafafa;
+  box-sizing: border-box;
+}
+.fund_list .fundname_list .title{
+  text-align: center;
+  width:100%;
+  line-height: 80rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+.fund_list .fundname_list .item{
+  height:100rpx;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  width:100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+   border-top:1rpx solid #fafafa; 
+  /* margin-top:1px; */
+  box-sizing: border-box;
+  padding-left:8rpx;
+  background-color: #fff;
+}
+
+.fund_list .fundname_list .fund_name .type{
+  width:36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  border:1rpx solid #455D7A;
+  color:#455D7A;
+  font-size: 30rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fund_list .fundname_list .fund_name .context{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8rpx;
+  width:80%;
+}
+
+.fund_list .fundname_list .fund_name .context .name,
+.fund_list .fundname_list .fund_name .context .code{
+  font-size: 30rpx;
+  color:#333;
+  line-height: 40rpx;
+  display: block;
+  width:98%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.fund_list .scroll_box{
+  width:65%;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font-size: 0px;
+  /* min-height: 800rpx; */
+}
+.fund_list .scroll_box .item{
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.fund_list .scroll_box .item view{
+  box-sizing: border-box;
+  border-right:1px solid #eee;
+  border-bottom:1px solid #eee;
+  background-color: #fff;
+}
+
+.fund_list .scroll_box .title view{
+  display: inline-block;
+  font-size: 30rpx;
+  width:160rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  /* border-bottom:1rpx solid #eee; */
+  border-right:1rpx solid #edf0f5;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.fund_list .scroll_box .title view image{
+  width:28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+}
+.fund_list .scroll_box .title view:nth-child(odd),
+.fund_list .scroll_box .item view:nth-child(odd){
+  background-color: #edf0f5;
+}
+.fund_list .scroll_box .item view{
+  display: inline-block;
+  width:160rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  box-sizing: border-box;
+}
+.fund_list .scroll_box .item view{
+  font-size: 30rpx;
+  vertical-align: middle;
+  border-right:1rpx solid #edf0f5;
+  box-sizing: border-box;
+}
+.fund_list .scroll_box .item .netWorth_box{
+  display:inline-flex;
+  flex-direction: column;
+  vertical-align: top;
+  justify-content: space-around;
+  padding:25rpx 0;
+}
+.fund_list .scroll_box .item view .netWorth{
+  display: block;
+  line-height: 30rpx;
+  font-weight: bold;
+}
+.fund_list .scroll_box .item view .netWorthDate{
+  display: block;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
