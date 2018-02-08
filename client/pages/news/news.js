@@ -36,7 +36,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    that.data.jrktType.forEach(function (el) {
+      that.getJrktData(el.label)
+    })
+
+    that.data.newsAjaxTYpe.forEach(function (el) {
+      that.getNewsData(el.label)
+    })
   },
 
   /**
@@ -50,14 +57,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    that.data.jrktType.forEach(function(el){
-      that.getJrktData(el.label)
-    })
-
-    that.data.newsAjaxTYpe.forEach(function (el) {
-      that.getNewsData(el.label)
-    })
+    
   },
 
   /**
@@ -79,6 +79,15 @@ Page({
    */
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
+    
+    var that = this;
+    that.data.jrktType.forEach(function (el) {
+      that.getJrktData(el.label)
+    })
+
+    that.data.newsAjaxTYpe.forEach(function (el) {
+      that.getNewsData(el.label)
+    })
 
     setTimeout(function () {
       // complete
@@ -97,6 +106,7 @@ Page({
     that.setData({
       pageIndex: index
     });
+    
     that.setData({
       randomDataTime: 1
     })
@@ -121,7 +131,7 @@ Page({
     var that = this;
     var reqObj = {
       pageIndex: that.data.pageIndex,
-      pageSize: 20,
+      pageSize: 5,
       recommendedStatus: 1,
       type: type,
       subType:""
@@ -166,7 +176,7 @@ Page({
     var that = this;
     var reqObj = {
       pageIndex: that.data.pageIndex,
-      pageSize: 20,
+      pageSize: 5,
       articleType: type,
     }
     var reqData = JSON.stringify(reqObj);
@@ -200,6 +210,25 @@ Page({
           newsCacheList: list
         })
       }
+    })
+  },
+
+  /**
+   * 跳转到文章详情页
+   */
+  toDetail:function(e){
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+
+    var content = that.data.newsCacheList[index];
+
+    wx.setStorage({
+      key: "articleContent",
+      data: content
+    })
+
+    wx.navigateTo({
+      url: '/pages/newsDetail/newsDetail'
     })
   }
 })

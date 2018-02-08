@@ -13,7 +13,7 @@
 <view class='hqb_view' bindtap='goFundDetail' data-code='210012'>
   <text class='title'>活期宝</text>
   <text class='gray_text'>万份收益(元) {{hqbData.fundincomeunit}}</text>
-  <text class='big_text'>{{hqbData.growthrate * 100}}<text>%</text></text>
+  <text class='big_text'>{{hqbData.growthrate}}<text>%</text></text>
   <text class='gray_text'>七日年化({{hqbData.navdateStr}})</text>
   <view class='card_list'>
     <view class='tab_card'>取现快速到账</view>

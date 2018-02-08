@@ -2,9 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/list/list",
-    "pages/publicFundDetail/publicFundDetail",
     "pages/news/news",
-    "pages/addCgi/addCgi"
+    "pages/publicFundDetail/publicFundDetail",
+    "pages/addCgi/addCgi",
+    "pages/newsDetail/newsDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

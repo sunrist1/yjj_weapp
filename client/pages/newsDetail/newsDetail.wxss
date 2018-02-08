@@ -1,0 +1,9 @@
+/* pages/newsDetail/newsDetail.wxss */
+@import "../../wxParse/wxParse.wxss";
+
+.page{
+  padding:25rpx;
+  font-size: 36rpx;
+  width:100%;
+  box-sizing: border-box;
+}

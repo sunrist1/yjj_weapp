@@ -2,8 +2,8 @@
   <image class='topImg' src='{{topImgSrc}}' mode='aspectFill'></image>
 
   <view class='news_list'>
-    <block wx:for="{{newsCacheList}}" wx:key="*this" wx:for-item="item">
-      <view class='news_item'>
+    <block wx:for="{{newsCacheList}}" wx:key="index" wx:for-item="item">
+      <view class='news_item' bindtap='toDetail' data-index="{{index}}">
         <view class='left'>
           <text class='title'>{{item.title}}</text>
           <view class='des_context'>

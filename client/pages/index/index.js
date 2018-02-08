@@ -102,6 +102,8 @@ Page({
       success: function (res) {
         var data = res.data;
         data.navdateStr = data.navdate.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3')
+console.log(data)
+        data.growthrate = (data.growthrate*1*100).toFixed(4);
         that.setData({
           hqbData:data
         })
