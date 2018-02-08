@@ -145,7 +145,8 @@ Page({
             type: el.typeName,
             time: time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate(),
             imgUrl: config.service.yjjhost+'/'+el.photoUrl,
-            timeUnix: el.editDatetime
+            timeUnix: el.editDatetime,
+            articleContent: el.articleContent
           }
           listCache.push(obj)
         })
@@ -179,7 +180,6 @@ Page({
       success: function (res) {
         var list = that.data.newsCacheList,
             listCache = [];
-        
         res.data.data.list.forEach(function(el){
           var time = new Date(el.editDatetime * 1000);
           var obj = {
@@ -187,7 +187,8 @@ Page({
             type: el.articleTypeName,
             time: time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate(),
             imgUrl: config.service.yjjhost+'/'+el.articlePhoto,
-            timeUnix: el.editDatetime
+            timeUnix: el.editDatetime,
+            articleContent: el.articleContent
           }
           listCache.push(obj)
         })
