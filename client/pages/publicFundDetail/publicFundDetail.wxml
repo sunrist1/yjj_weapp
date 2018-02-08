@@ -5,11 +5,6 @@
       <text class='code'>({{fundInfo.fundCode}})</text>
     </view>
 
-    <view class='fund_status'>
-      <text class='item'>基金状态:交易</text>
-      <text class='item'>状态日期:2018-02-07</text>
-    </view>
-
     <view class='data'>
       <view class='item'>
         <text class='sm_letter'>最新净值({{fundInfo.nav.PRICE_DATE}})</text>
@@ -72,6 +67,14 @@
           <view>
             <text>基金类型</text>
             <text>{{fundInfo.data.F_INFO_TYPE}}</text>
+          </view> 
+          <view>
+            <text>基金状态</text>
+            <text>交易</text>
+          </view>
+          <view>
+            <text>状态日期</text>
+            <text>2017-02-08</text>
           </view> 
           <view>
             <text>分红方式</text>

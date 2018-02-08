@@ -6,6 +6,7 @@
 var host = 'https://669512587.junkwok.club';  //pro
 // var yjjhost = 'http://app1.efoundation.com.cn';  //pro
 var yjjhost = 'http://192.168.1.211:8088/'  // dev
+// var yjjhost = 'http://192.168.1.73/'  // dev
 
 var config = {
 
