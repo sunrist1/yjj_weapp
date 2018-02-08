@@ -4,8 +4,8 @@
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'https://669512587.junkwok.club';  //pro
-var yjjhost = 'http://app1.efoundation.com.cn';  //pro
-// var yjjhost = 'http://192.168.1.73/'  // dev
+// var yjjhost = 'http://app1.efoundation.com.cn';  //pro
+var yjjhost = 'http://192.168.1.211:8088/'  // dev
 
 var config = {
 
@@ -38,6 +38,21 @@ var config = {
         // 资讯列表接口
         jrktUrl: `${yjjhost}/mobile/about/getJrktList`,
         newsAjaxUrl: `${yjjhost}/mobile/news/newsAjax`,  //财富头条和投基策略的请求链接
+
+        // 基金详情信息
+        fundDetailUrl: `${yjjhost}/mobile/publicfund/getPublicFundDetail`,
+
+        // 详情页净值走势
+        fundNavTrade: `${yjjhost}/mobile/publicfund/navTrade`,
+
+        // 详情页净值增长走势
+        fundIncreaseTrade: `${yjjhost}/mobile/publicfund/navIncreaseTrade`,
+
+        // 详情页申购费率
+        fundShengouRate: `${yjjhost}/mobile/publicfund/shengou`,
+
+        // 详情页赎回费率
+        fundShuhuiRate: `${yjjhost}/mobile/publicfund/shuhui`
     },
 };
 

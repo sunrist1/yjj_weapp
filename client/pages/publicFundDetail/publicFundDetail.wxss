@@ -16,11 +16,20 @@
   padding:25rpx;
 }
 .title .fund_name{
-  margin-bottom: 25rpx;
+  margin-bottom: 15rpx;
   font-size: 40rpx;
 }
 .title .fund_name .code{
   font-size: 36rpx;
+}
+
+.title .fund_status{
+  margin-bottom: 25rpx;
+}
+.title .fund_status .item{
+  display: block;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
 }
 .title .data{
   display: flex;
