@@ -10,7 +10,7 @@
 </swiper>
 
 <!-- 活期宝  -->
-<view class='hqb_view'>
+<view class='hqb_view' bindtap='goFundDetail' data-code='210012'>
   <text class='title'>活期宝</text>
   <text class='gray_text'>万份收益(元) {{hqbData.fundincomeunit}}</text>
   <text class='big_text'>{{hqbData.growthrate * 100}}<text>%</text></text>
@@ -27,7 +27,7 @@
   <view class='card_title'>优选基金</view>
   <view class='fund_list good_fund_list'>
     <block wx:for="{{goodFundList}}" wx:key="*this" wx:for-item="item">
-      <view class='fund_item'>
+      <view class='fund_item' bindtap='goFundDetail' data-code='{{item.fundCode}}'>
         <view class='fund_name'>
           <view class='fund_type'>
             {{item.shortFundType}}
@@ -54,7 +54,7 @@
   <view class='card_title'>新手基金</view>
   <view class='fund_list new_fund_list'>
     <block wx:for="{{newHandFund}}" wx:key="*this" wx:for-item="item">
-      <view class='fund_item'>
+      <view class='fund_item' bindtap='goFundDetail' data-code='{{item.fundCode}}'>
         <view class='fund_name'>
           <view class='fund_type'>
             {{item.shortFundType}}

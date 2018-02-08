@@ -110,6 +110,17 @@ Page({
   },
 
   /**
+   * 跳转到基金详情页
+   */
+  goFundDetail:function(e){
+    var code = e.currentTarget.dataset.code;
+    console.log(code);
+    wx.navigateTo({
+      url: '/pages/publicFundDetail/publicFundDetail?id='+code
+    })
+  },
+
+  /**
    * 跳转列表页
    */
   toList:function(){

@@ -22,7 +22,7 @@
     <view class='fundname_list'>
       <view class='title'>基金名称</view>
       <block wx:for="{{publicFundList}}" wx:key="*this" wx:for-item="item">
-        <view class='item fund_name' bindtap='toDetail'>
+        <view class='item fund_name' bindtap='toDetail' data-code='{{item.fundCode}}'>
           <view class='type'>{{item.typeShortName}}</view>
           <view class='context'>
             <text class='name'>{{item.fundShortName}}</text>

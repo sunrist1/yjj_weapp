@@ -1,1 +1,254 @@
 @import "../common.wxss";
+.page{
+  background-color: #f4f4f4;
+}
+
+.increase{
+  background-color: #F95959;
+}
+
+.decrease{
+  background-color: #44b549;
+}
+
+.title{
+  color:#fff;
+  padding:25rpx;
+}
+.title .fund_name{
+  margin-bottom: 25rpx;
+  font-size: 40rpx;
+}
+.title .fund_name .code{
+  font-size: 36rpx;
+}
+.title .data{
+  display: flex;
+  /* justify-content: space-around; */
+}
+.title .data .item{
+  text-align: left;
+  width:50%;
+}
+.title .data .item>text{
+  display: block;
+}
+
+.title .data .item .sm_letter{
+  font-size: 28rpx;
+  opacity: 0.8;
+  margin-bottom: 15rpx;
+}
+
+.title .data .item .big_letter{
+  font-size: 70rpx;
+  margin-top: 10rpx;
+}
+.title .data .item .big_letter .per{
+   font-size: 30rpx;
+ }
+
+ .title .type_box{
+   border-top:1px solid rgba(255, 255, 255, 0.5);
+   margin-top:25rpx;
+   padding:25rpx 0 0;
+ }
+
+.title .type_box .item{
+  font-size: 30rpx;
+  padding:10rpx 15rpx;
+  border:1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+/* 购买费率  */
+.rate_box{
+  background-color: #fff;
+  margin-top:15rpx;
+  display: flex;
+  justify-content: space-between;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding:0 20rpx;
+}
+.rate_box .item text{
+  font-size: 40rpx;
+}
+.rate_box .item .old_rate{
+  color:#aaa;
+  text-decoration: line-through;
+}
+.rate_box .item .new_rate{
+  color:#F95959;
+  margin-left: 15rpx;
+}
+
+/*  折线图  */
+.charts_box{
+  margin-top: 15rpx;
+  background-color: #fff;
+}
+
+.charts_box .tabbar_box .list{
+  display: flex;
+  justify-content: space-around;
+  min-height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #E3E3E3;
+}
+.charts_box .tabbar_box .list .item{
+  font-size: 28rpx;
+  border:1rpx solid #aaa;
+  color:#aaa;
+  border-radius: 20rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  padding:5rpx 15rpx;
+}
+.charts_box .tabbar_box .list .active{
+  color:#fff;
+  background-color: #F95959;
+  border:1rpx solid #F95959;
+}
+ .charts_box .tabbar_box>.title{
+  padding: 15rpx;
+  color:#333;
+  font-size: 36rpx;
+} 
+
+canvas{
+  position: absolute;
+}
+.charts_box .tabbar_box .active{
+  color:#F95959;
+  border-bottom: 2px solid #F95959
+}
+
+.charts_box{
+  height: 550rpx;
+}
+
+
+.charts_box canvas{
+  height: 500rpx;
+  width:100%;
+}
+.info_box{
+  padding:25rpx;
+  background-color: #fff;
+  margin-top:25rpx;
+  min-height: 500rpx;
+}
+.info_box swiper,
+.info_box swiper swiper-item{
+  min-height:500rpx; 
+}
+.info_box .tabbar_box{
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1rpx solid #E3E3E3;
+}
+.info_box .tabbar_box>.item{
+  padding-bottom: 15rpx;
+}
+.info_box .tabbar_box .active{
+  border-bottom:5rpx solid #F95959;
+  color:#F95959;
+}
+.info_box swiper-item>.item{
+  padding:25rpx;
+}
+.info_box .fund_info>view{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 34rpx;
+  padding:0 15rpx;
+  width:100%;
+}
+.info_box .fund_info>view>text{
+  display: inline-block;
+  vertical-align: middle;
+}
+.info_box .fund_info>view>text:nth-of-type(1){
+  min-width:20%;
+  margin-right: 30rpx;
+}
+.info_box .fund_info>view>text:nth-of-type(2){
+  text-overflow:ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width:75%;
+  display: inline-block;
+}
+.info_box .fund_rate{
+}
+.info_box .fund_rate>text{
+  font-size: 34rpx;
+}
+.info_box .fund_rate .data_box{
+  border:1px solid #E3E3E3;
+  width:90%;
+  margin:10rpx auto;
+}
+.info_box .fund_rate .data_box >view{
+  display: flex;
+  justify-content: space-around;
+  padding:10rpx;
+  font-size: 34rpx;
+}
+.info_box .fund_rate .data_box .title{
+  background-color: #E3E3E3;
+  color:#333;
+}
+
+
+.info_box .fund_company .company_info{
+  border:1rpx solid #E3E3E3;
+
+}
+
+.info_box .fund_company .company_info .item{
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1rpx solid #E3E3E3;
+}
+.info_box .fund_company .company_info .item>text{
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  font-size: 36rpx;
+}
+.info_box .fund_company .company_info .item>text:nth-of-type(1){
+  background-color: #E3E3E3;
+  width:30%;  
+}
+.info_box .fund_company .company_info .item>text:nth-of-type(2){
+  width:70%;
+}
+
+.card_box{
+  margin-top:25rpx;
+  padding:25rpx;
+  background-color: #fff;
+}
+
+.card_box .title{
+  border-bottom: 1rpx solid #E3E3E3;
+  padding:10rpx 0;
+  font-size: 34rpx;
+  line-height: 60rpx;
+  color:#333;
+  display: block;
+  width:100%;
+}
+
+.card_box .content{
+  text-indent: 2em;
+  font-size: 34rpx;
+  line-height: 60rpx;
+  display: block;
+  color:#333;
+}

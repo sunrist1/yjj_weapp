@@ -157,9 +157,11 @@ Page({
   /**
    * 跳转详情页
    */
-  toDetail:function(){
-    wx.switchTab({
-      url: '/list'
+  toDetail:function(e){
+    var code = e.currentTarget.dataset.code;
+    console.log(code);
+    wx.navigateTo({
+      url: '/pages/publicFundDetail/publicFundDetail?id=' + code
     })
   }
 })

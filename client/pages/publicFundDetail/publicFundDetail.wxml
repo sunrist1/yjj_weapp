@@ -1,2 +1,141 @@
-<!--pages/publicFundDetail/publicFundDetail.wxml-->
-<text>公募基金详情页</text>
+<view class='page'>
+  <view class='title increase'>
+    <view class='fund_name'>
+      <text class='name'>华安中证银行指数分级</text>
+      <text class='code'>(164182)</text>
+    </view>
+
+    <view class='data'>
+      <view class='item'>
+        <text class='sm_letter'>最新净值(02-07)</text>
+        <text class='big_letter'>0.9641</text>
+      </view>
+      <view class='item'>
+        <text class='sm_letter'>日涨幅</text>
+        <text class='big_letter'>3.05<text class='per'>%</text></text>
+      </view>
+    </view>
+
+    <view class='type_box'>
+      <view class='item'>股票指数</view>
+      <view class='item'>高风险</view>
+    </view>
+  </view>
+
+  <!-- 费率  -->
+  <view class='rate_box'>
+    <view class='item'>购买费率</view>
+    <view class='item'>
+      <text class='old_rate'>1.50%</text>
+      <text class='new_rate'>0.15%</text>
+    </view>
+  </view>  
+
+  <!-- 折线图  -->
+  <view class='charts_box'>
+    <view class='tabbar_box'>
+      <view class='title'>净值走势</view>
+      <view class='list'>
+        <view class='item active'>近一月</view>
+        <view class='item'>近三月</view>
+        <view class='item'>近六月</view>
+        <view class='item'>近一年</view>
+      </view>
+    </view>
+    <canvas canvas-id="lineCanvas_1" disable-scroll="false" class="canvas"></canvas>
+  </view>
+
+  <!-- 基金信息  -->
+  <view class='info_box'>
+    <view class='tabbar_box'>
+      <view class='item active'>基金信息</view>
+      <view class='item'>费率</view>
+      <view class='item'>投资相关</view>
+    </view>
+    <swiper>
+      <swiper-item>
+        <!--基金信息  -->
+        <view class='item fund_info'>
+          <view>
+            <text>基金名称</text>
+            <text>中融融丰纯债债券型证券投资基金中融融丰纯债债券型证券投资基金</text>
+          </view>
+          <view>
+            <text>基金代码</text>
+            <text>002675</text>
+          </view> 
+          <view>
+            <text>基金类型</text>
+            <text>债券型</text>
+          </view> 
+          <view>
+            <text>分红方式</text>
+            <text>现金分红</text>
+          </view> 
+          <view>
+            <text>成立时间</text>
+            <text>20160826</text>
+          </view> 
+          <view>
+            <text>托管人银行</text>
+            <text>交通银行</text>
+          </view> 
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class='item fund_rate'>
+          <text>申购费率</text>
+          <view class='data_box'>
+            <view class='title'>
+              <text>金额</text>
+              <text>费率</text>
+            </view>
+            <view class='item'>
+              <text>少于100万</text>
+              <text>0.80%</text>
+            </view>
+          </view>
+
+          <text>赎回费率</text>
+          <view class='data_box'>
+            <view class='title'>
+              <text>时间</text>
+              <text>费率</text>
+            </view>
+            <view class='item'>
+              <text>少于30日</text>
+              <text>0.80%</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class='item fund_company'>
+          <view class='company_info'>
+            <view class='item'>
+              <text>基金公司</text>
+              <text>博时基金</text>
+            </view>
+            <view class='item'>
+              <text>基金经理</text>
+              <text> 过钧 王曦 </text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 投资标的和风险  -->
+  <view class='card_box'>
+    <text class='title'>投资目的:</text>
+    <text class='content'>本基金通过对多种投资策略的有机结合，在有效控制风险的前提下，力争为基金持有人获取长期持续稳定的投资回报。
+    </text>
+  </view>
+  <view class='card_box'>
+    <text class='title'>风险收益特征:</text>
+    <text class='content'>本基金为混合型基金，其预期收益及预期风险水平低于股票型基金，高于债券型基金及货币市场基金，属于中高收益/风险特征的基金。
+    </text>
+  </view>
+  
+</view>
