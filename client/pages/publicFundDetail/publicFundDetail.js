@@ -10,7 +10,33 @@ Page({
   data: {
     fundCode:'',
     fundInfo:{},
-    navType:'3month'
+    navType:'3month',
+    shengouRateList:[],
+    shuhuiRateList:[],
+    currentIndex:0,
+    increseData:'',
+    isCurrency:false,  // 用于判断是否是货币基金
+  },
+  onShareAppMessage: function (res) {
+    var that = this;
+    return {
+      title: that.data.fundInfo.data.F_INFO_FULLNAME,
+      path: '/page/publicFundDetail/publicFundDetail?id=' + that.data.fundInfo.fundCode,
+      success: function (res) {
+        wx.showToast({
+          title: '分享成功',
+          icon: 'none',
+          duration: 2000
+        })
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: '分享失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }
   },
   touchHandler: function (e) {
     lineChart.showToolTip(e, {
@@ -25,8 +51,7 @@ Page({
  */
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.getIndexData();
-    this.getHqbData();
+    this.getFundInfo();
     setTimeout(function () {
       // complete
       wx.hideNavigationBarLoading() //完成停止加载
@@ -36,7 +61,7 @@ Page({
   onLoad: function (option) {
     console.log(option.id)
     this.setData({
-      fundCode:'040008'
+      fundCode: option.id
     })
 
     // 获取详情信息
@@ -56,8 +81,9 @@ Page({
   // 获取净值走势数据
   getFundChartData: function () {
     var that = this;
+    var url = that.data.isCurrency ? config.service.wanNavTrade : config.service.fundNavTrade;
     wx.request({
-      url: config.service.fundNavTrade, //仅为示例，并非真实的接口地址
+      url: url, 
       method: 'post',
       data: {
         windcode: that.data.fundInfo.data.WINDCODE,
@@ -67,7 +93,29 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        
         var chartData = res.data.data.list;
+
+        if(chartData.length < 1){
+          wx.showToast({
+            title: '无相关数据',
+            icon: 'none',
+            duration: 2000
+          })
+          return;
+        }
+        if (!that.data.increseData){
+          if (that.data.isCurrency) {
+            that.setData({
+              increseData: chartData[0].WAN
+            })
+          } else {
+            that.setData({
+              increseData: chartData[0].NAVVALUE
+            })
+          }
+        }
+        
         var windowWidth = 320;
         try {
           var res = wx.getSystemInfoSync();
@@ -81,9 +129,19 @@ Page({
 
         chartData.forEach(function(el){
           valueList.push(el.DATEVALUE)
-          dateList.push(el.NAVVALUE)
+          if (that.data.isCurrency){
+            dateList.push(el.WAN)
+          }else{
+            dateList.push(el.NAVVALUE)
+          }
         })
 
+        var chartName = '净值',
+            yTitle ='净值走势(元)';
+        if (that.data.isCurrency){
+          chartName = '万份收益';
+          yTitle = '万份收益走势';
+        }
         lineChart = new wxCharts({
           canvasId: 'lineCanvas_1',
           type: 'line',
@@ -91,7 +149,7 @@ Page({
           animation: true,
           // background: '#f5f5f5',
           series: [{
-            name: '净值',
+            name: chartName,
             data: dateList,
             color:'#455D7A',
             format: function (val, name) {
@@ -102,7 +160,7 @@ Page({
             disableGrid: true
           },
           yAxis: {
-            title: '净值走势 (元)',
+            title: yTitle,
             format: function (val) {
               return val.toFixed(2);
             },
@@ -111,7 +169,7 @@ Page({
           width: windowWidth,
           height: 200,
           dataLabel: false,
-          dataPointShape: true,
+          dataPointShape: false,
           extra: {
             lineStyle: 'straight'
           }
@@ -152,13 +210,80 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        console.log(res.data.data)
         that.setData({
           fundInfo: res.data.data
         })
 
-        // 回调请求净值走势
+        if (that.data.fundInfo.data.F_INFO_FIRSTINVESTTYPE.indexOf('货币') >= 0){
+          that.setData({
+            isCurrency:true
+          })
+        }
+
+        // 回调请求走势图
         that.getFundChartData();
+        // 获取申购费率
+        that.getShengouRate();
+        // 获取赎回费率
+        that.getShuhuiRate();
       }
+    })
+  },
+
+  /**
+   * 申购费率
+   */
+  getShengouRate:function(){
+    var that = this;
+    wx.request({
+      url: config.service.fundShengouRate, //仅为示例，并非真实的接口地址
+      method: 'post',
+      data: {
+        windcode: that.data.fundInfo.data.WINDCODE,
+        fundcode: that.data.fundCode
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        that.setData({
+          shengouRateList: res.data.data.list
+        })
+      }
+    })
+  },
+
+  /**
+   * 赎回费率
+   */
+  getShuhuiRate: function () {
+    var that = this;
+    wx.request({
+      url: config.service.fundShuhuiRate, //仅为示例，并非真实的接口地址
+      method: 'post',
+      data: {
+        windcode: that.data.fundInfo.data.WINDCODE,
+        fundcode: that.data.fundCode
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        that.setData({
+          shuhuiRateList: res.data.data.list
+        })
+      }
+    })
+  },
+
+  /**
+   * 基金信息滑动时间
+   */
+  changeInfoSwiper:function(e){
+    var cur = e.detail.current;
+    this.setData({
+      currentIndex:cur
     })
   }
 });

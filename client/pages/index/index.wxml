@@ -29,9 +29,7 @@
     <block wx:for="{{goodFundList}}" wx:key="*this" wx:for-item="item">
       <view class='fund_item' bindtap='goFundDetail' data-code='{{item.fundCode}}'>
         <view class='fund_name'>
-          <view class='fund_type'>
-            {{item.shortFundType}}
-          </view>
+          <view class='fund_type'>{{item.shortFundType}}</view>
           <text>{{item.fundName}}</text>
         </view>
         <view class='context'>
@@ -56,9 +54,7 @@
     <block wx:for="{{newHandFund}}" wx:key="*this" wx:for-item="item">
       <view class='fund_item' bindtap='goFundDetail' data-code='{{item.fundCode}}'>
         <view class='fund_name'>
-          <view class='fund_type'>
-            {{item.shortFundType}}
-          </view>
+          <view class='fund_type'>{{item.shortFundType}}</view>
           <text>{{item.fundName}}</text>
         </view>
         <view class='context'>

@@ -164,7 +164,7 @@ swiper .slide-image{
   right:0;
   height: 80rpx;
   width:80rpx;
-  background: url('http://192.168.1.211:3000/fund_good_icon.png') 0 0 no-repeat;
+  background: url('https://app1.efoundation.com.cn/public/mobile/images/weapp/fund_good_icon.png') 0 0 no-repeat;
   background-size: 100% 100%;
 }
 
@@ -176,7 +176,7 @@ swiper .slide-image{
   right:0;
   height: 80rpx;
   width:80rpx;
-  background: url('http://192.168.1.211:3000/fund_new_icon.png') 0 0 no-repeat;
+  background: url('https://app1.efoundation.com.cn/public/mobile/images/weapp/fund_new_icon.png') 0 0 no-repeat;
   background-size: 100% 100%;
 }
 

@@ -105,16 +105,15 @@
   justify-content: space-around;
   min-height: 70rpx;
   line-height: 70rpx;
-  border-bottom: 1px solid #E3E3E3;
 }
 .charts_box .tabbar_box .list .item{
-  font-size: 28rpx;
+  font-size: 30rpx;
   border:1rpx solid #aaa;
   color:#aaa;
   border-radius: 20rpx;
-  height: 36rpx;
-  line-height: 36rpx;
-  padding:5rpx 15rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding:5rpx 20rpx;
 }
 .charts_box .tabbar_box .list .active{
   color:#fff;
@@ -154,6 +153,9 @@ canvas{
 .info_box swiper swiper-item{
   min-height:500rpx; 
 }
+.info_box swiper swiper-item{
+  overflow: auto;
+}
 .info_box .tabbar_box{
   display: flex;
   justify-content: space-around;
@@ -187,10 +189,11 @@ canvas{
 }
 .info_box .fund_info>view>text:nth-of-type(2){
   text-overflow:ellipsis;
-  overflow: hidden;
+  overflow-x: hidden;
   white-space: nowrap;
-  max-width:75%;
+  max-width:70%;
   display: inline-block;
+  line-height:70rpx;
 }
 .info_box .fund_rate{
 }
@@ -202,11 +205,27 @@ canvas{
   width:90%;
   margin:10rpx auto;
 }
-.info_box .fund_rate .data_box >view{
+.info_box .fund_rate .data_box >.title,
+.info_box .fund_rate .data_box >.item{
   display: flex;
   justify-content: space-around;
-  padding:10rpx;
+  padding:15rpx;
+  align-items: center;
   font-size: 34rpx;
+  border-bottom:1rpx solid #E3E3E3;
+}
+.info_box .fund_rate .data_box >.item>view{
+  width:0;
+}
+.info_box .fund_rate .data_box >.title>text,
+.info_box .fund_rate .data_box >.item>text{
+  min-width:50%;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+}
+.info_box .fund_rate .data_box >.item>text:nth-of-type(2){
+  text-align: center;
 }
 .info_box .fund_rate .data_box .title{
   background-color: #E3E3E3;
@@ -229,6 +248,7 @@ canvas{
   height: 100%;
   text-align: center;
   font-size: 36rpx;
+  vertical-align:middle;
 }
 .info_box .fund_company .company_info .item>text:nth-of-type(1){
   background-color: #E3E3E3;

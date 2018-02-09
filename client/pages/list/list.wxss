@@ -17,7 +17,7 @@ page{
 }
 .scroll_box{
    white-space: nowrap;
-   width: 88%;
+   width: 99%;
    height: 80rpx;
 }
 .type_item{

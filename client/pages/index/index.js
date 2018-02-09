@@ -10,7 +10,7 @@ Page({
       'https://app1.efoundation.com.cn//upload/article/10976389-9b7b-46f0-a04b-0e39d0caa20f.jpg',
       'https://app1.efoundation.com.cn//upload/article/155986b5-82f2-4112-bcb8-b1d9d226a670.jpg'
     ],
-    certificateImgSrc:'http://192.168.1.211:3000/certificate_2.png',
+    certificateImgSrc: `${config.service.yjjhost}/public/mobile/images/weapp/certificate_2.png`,
     logged: false,
     takeSession: false,
     requestResult: '',
@@ -102,7 +102,6 @@ Page({
       success: function (res) {
         var data = res.data;
         data.navdateStr = data.navdate.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3')
-console.log(data)
         data.growthrate = (data.growthrate*1*100).toFixed(4);
         that.setData({
           hqbData:data

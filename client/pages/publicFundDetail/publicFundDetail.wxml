@@ -1,5 +1,5 @@
 <view class='page'>
-  <view class='title increase'>
+  <view class="title {{increseData>=0?'increase':'decrease'}}">
     <view class='fund_name'>
       <text class='name'>{{fundInfo.data.F_INFO_FULLNAME}}</text>
       <text class='code'>({{fundInfo.fundCode}})</text>
@@ -7,12 +7,12 @@
 
     <view class='data'>
       <view class='item'>
-        <text class='sm_letter'>最新净值({{fundInfo.nav.PRICE_DATE}})</text>
-        <text class='big_letter'>{{fundInfo.nav.NAV}}</text>
+        <text class='sm_letter'>{{isCurrency?'万份收益':'净值走势'}}({{fundInfo.nav.PRICE_DATE}})</text>
+        <text class='big_letter'>{{isCurrency?fundInfo.interest.WAN:fundInfo.nav.NAV}}</text>
       </view>
       <view class='item'>
-        <text class='sm_letter'>日涨幅</text>
-        <text class='big_letter'>0.00<text class='per'>%</text></text>
+        <text class='sm_letter'>{{isCurrency?'七日年化收益':'日涨幅'}}</text>
+        <text class='big_letter'>{{increseData}}<text class='per'>%</text></text>
       </view>
     </view>
 
@@ -34,7 +34,7 @@
   <!-- 折线图  -->
   <view class='charts_box'>
     <view class='tabbar_box'>
-      <view class='title'>净值走势</view>
+      <view class='title'>{{isCurrency?'万份收益走势':'净值走势'}}</view>
       <view class='list'>
         <view bindtap='changeNavType' class="item {{navType == 'month'?'active':''}}" data-type="month">近一月</view>
         <view bindtap='changeNavType' class="item {{navType == '3month'?'active':''}}" data-type="3month">近三月</view>
@@ -48,11 +48,11 @@
   <!-- 基金信息  -->
   <view class='info_box'>
     <view class='tabbar_box'>
-      <view class='item active'>基金信息</view>
-      <view class='item'>费率</view>
-      <view class='item'>投资相关</view>
+      <view class="item {{currentIndex == 0?'active':''}}">基金信息</view>
+      <view class="item {{currentIndex == 1?'active':''}}">费率</view>
+      <view class="item {{currentIndex == 2?'active':''}}">投资相关</view>
     </view>
-    <swiper>
+    <swiper style='min-height:700rpx;' bindchange='changeInfoSwiper'>
       <swiper-item>
         <!--基金信息  -->
         <view class='item fund_info'>
@@ -98,10 +98,18 @@
               <text>金额</text>
               <text>费率</text>
             </view>
-            <view class='item'>
-              <text>少于100万</text>
-              <text>0.80%</text>
-            </view>
+            
+            <block wx:for="{{shengouRateList}}" wx:for-item="item" wx:key="index">
+              <view class='item'>
+                <text wx:if="{{item.UP == null && item.DOWN != null}}">{{item.DOWN}}万以上</text>
+                <text wx:elif="{{item.UP != null && item.DOWN == null}}">{{item.UP}}万以下</text>
+                <text wx:elif="{{item.UP != null && item.DOWN != null}}">{{item.DOWN}}万到{{item.UP}}万</text>
+                <text wx:else>{{item.FEERATIO}}</text>
+
+                <text wx:if="{{item.UP != null || item.DOWN != null}}">{{item.FEERATIO}}%</text>
+                <view wx:else></view>
+              </view>
+            </block>
           </view>
 
           <text>赎回费率</text>
@@ -110,10 +118,17 @@
               <text>时间</text>
               <text>费率</text>
             </view>
-            <view class='item'>
-              <text>少于30日</text>
-              <text>0.80%</text>
-            </view>
+            <block wx:for="{{shengouRateList}}" wx:for-item="item" wx:key="index">
+              <view class='item'>
+                <text wx:if="{{item.UP == null && item.DOWN != null}}">{{item.DOWN}}{{item.UNIT}}以上</text>
+                <text wx:elif="{{item.UP != null && item.DOWN == null}}">{{item.UP}}{{item.UNIT}}以下</text>
+                <text wx:elif="{{item.UP != null && item.DOWN != null}}">{{item.DOWN}}{{item.UNIT}}到{{item.UP}}{{item.UNIT}}</text>
+                <text wx:else>{{item.FEERATIO}}</text>
+
+                <text wx:if="{{item.UP != null || item.DOWN != null}}">{{item.FEERATIO}}%</text>
+                <view wx:else></view>
+              </view>
+            </block>
           </view>
         </view>
       </swiper-item>
@@ -126,7 +141,7 @@
             </view>
             <view class='item'>
               <text>基金经理</text>
-              <text wx:for="{{fundInfo.managers}}" wx:key="*this"></text>
+              <text><block wx:for="{{fundInfo.managers}}" wx:key="*this" wx:item="item">{{item.MAN}}、</block></text>
             </view>
           </view>
         </view>

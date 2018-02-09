@@ -9,9 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    searchImgUrl:"http://192.168.1.211:3000/search.png",
-    sortImgSrc:"http://192.168.1.211:3000/sort-descending.png",
-    activeSortImgSrc:"http://192.168.1.211:3000/sort-descending_2.png",
+    searchImgUrl:`${config.service.yjjhost}/public/mobile/images/weapp/search.png`,
+    sortImgSrc:`${config.service.yjjhost}/public/mobile/images/weapp/sort-descending.png`,
+    activeSortImgSrc:`${config.service.yjjhost}/public/mobile/images/weapp/sort-descending_2.png`,
     toView: 'all',
     scrollTop: 100,
     publicFundList:[],
