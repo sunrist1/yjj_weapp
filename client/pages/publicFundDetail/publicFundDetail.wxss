@@ -131,7 +131,7 @@ canvas{
 }
 .charts_box .tabbar_box .active{
   color:#F95959;
-  border-bottom: 2px solid #F95959
+  border-bottom: 2px solid #F95959;
 }
 
 .charts_box{
