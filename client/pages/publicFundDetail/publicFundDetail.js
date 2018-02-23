@@ -14,6 +14,7 @@ Page({
     shengouRateList:[],
     shuhuiRateList:[],
     currentIndex:0,
+    currentItemId:0,
     increseData:'',
     isCurrency:false,  // 用于判断是否是货币基金
   },
@@ -48,6 +49,15 @@ Page({
       }
     });
   },
+  onLoad: function (option) {
+    var id = option.id ? option.id : '210012';
+    this.setData({
+      fundCode: id
+    })
+
+    // 获取详情信息
+    this.getFundInfo();
+  },
   /**
  * 下拉刷新
  */
@@ -59,15 +69,6 @@ Page({
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
-  },
-  onLoad: function (option) {
-    console.log(option.id)
-    this.setData({
-      fundCode: option.id
-    })
-
-    // 获取详情信息
-    this.getFundInfo();
   },
 
   changeNavType:function(e){
@@ -286,6 +287,16 @@ Page({
     var cur = e.detail.current;
     this.setData({
       currentIndex:cur
+    })
+  },
+
+  /**
+   * 切换基金信息栏
+   */
+  changeInfoBar:function(e){
+    var cur = e.target.dataset.current;
+    this.setData({
+      currentItemId:cur
     })
   }
 });

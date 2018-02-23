@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/publicFundDetail/publicFundDetail",
     "pages/index/index",
     "pages/list/list",
     "pages/news/news",
-    "pages/publicFundDetail/publicFundDetail",
     "pages/addCgi/addCgi",
     "pages/newsDetail/newsDetail"
   ],

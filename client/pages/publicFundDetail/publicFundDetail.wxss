@@ -121,7 +121,7 @@
   border:1rpx solid #F95959;
 }
  .charts_box .tabbar_box>.title{
-  padding: 15rpx;
+  padding:30rpx 15rpx;
   color:#333;
   font-size: 36rpx;
 } 
@@ -135,12 +135,11 @@ canvas{
 }
 
 .charts_box{
-  height: 550rpx;
+  height: 600rpx;
 }
 
-
 .charts_box canvas{
-  height: 500rpx;
+  height: 450rpx;
   width:100%;
 }
 .info_box{

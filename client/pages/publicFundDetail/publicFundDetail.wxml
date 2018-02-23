@@ -48,11 +48,11 @@
   <!-- 基金信息  -->
   <view class='info_box'>
     <view class='tabbar_box'>
-      <view class="item {{currentIndex == 0?'active':''}}">基金信息</view>
-      <view class="item {{currentIndex == 1?'active':''}}">费率</view>
-      <view class="item {{currentIndex == 2?'active':''}}">投资相关</view>
+      <view bindtap='changeInfoBar' data-current="0" class="item {{currentIndex == 0?'active':''}}">基金信息</view>
+      <view bindtap='changeInfoBar' data-current="1" class="item {{currentIndex == 1?'active':''}}">费率</view>
+      <view bindtap='changeInfoBar' data-current="2" class="item {{currentIndex == 2?'active':''}}">投资相关</view>
     </view>
-    <swiper style='min-height:700rpx;' bindchange='changeInfoSwiper'>
+    <swiper style='min-height:700rpx;' bindchange='changeInfoSwiper' current="{{currentItemId}}">
       <swiper-item>
         <!--基金信息  -->
         <view class='item fund_info'>
