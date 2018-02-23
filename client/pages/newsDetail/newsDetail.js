@@ -77,6 +77,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var that = this;
+    return {
+      title: "亿基金",
+      path: 'pages/newsDetail/newsDetail',
+      success: function (res) {
+        wx.showToast({
+          title: '分享成功',
+          icon: 'none',
+          duration: 2000
+        })
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: '分享失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    }
   }
 })

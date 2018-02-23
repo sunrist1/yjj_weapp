@@ -19,9 +19,11 @@ Page({
   },
   onShareAppMessage: function (res) {
     var that = this;
+    var sharePath = 'pages/publicFundDetail/publicFundDetail?id=' + that.data.fundInfo.fundCode;
+    console.log(sharePath);
     return {
       title: that.data.fundInfo.data.F_INFO_FULLNAME,
-      path: '/page/publicFundDetail/publicFundDetail?id=' + that.data.fundInfo.fundCode,
+      path: sharePath,
       success: function (res) {
         wx.showToast({
           title: '分享成功',
