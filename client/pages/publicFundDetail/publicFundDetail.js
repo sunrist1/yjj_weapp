@@ -76,7 +76,7 @@ Page({
     that.setData({
       navType:navType
     })
-
+    console.log("aaa")
     that.getFundChartData();
   },
 
