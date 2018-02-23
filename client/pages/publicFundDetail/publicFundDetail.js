@@ -43,7 +43,6 @@ Page({
   },
   touchHandler: function (e) {
     lineChart.showToolTip(e, {
-      // background: '#7cb5ec',
       format: function (item, category) {
         return category + ' ' + item.name + ':' + item.data
       }
