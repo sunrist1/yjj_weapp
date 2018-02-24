@@ -10,7 +10,7 @@
 </swiper>
 
 <!-- 活期宝  -->
-<view class='hqb_view' bindtap='goFundDetail' data-code='210012'>
+<view class='hqb_view' bindtap='goHqbDetail' data-code='210012'>
   <text class='title'>活期宝</text>
   <text class='gray_text'>万份收益(元) {{hqbData.fundincomeunit}}</text>
   <text class='big_text'>{{hqbData.growthrate}}<text>%</text></text>

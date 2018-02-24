@@ -130,6 +130,12 @@ Page({
     })
   },
 
+  goHqbDetail:function(){
+    wx.navigateTo({
+      url: '/pages/hqbDetail/hqbDetail'
+    })
+  },
+
   /**
  * 用户点击右上角分享
  */

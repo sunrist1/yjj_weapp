@@ -1,0 +1,2 @@
+<!--pages/hqbDetail/hqbDetail.wxml-->
+<web-view src="http://app1.efoundation.com.cn/mobile/publicfund/hqbDetail"></web-view>

@@ -6,7 +6,8 @@
     "pages/publicFundDetail/publicFundDetail",
     "pages/news/news",
     "pages/addCgi/addCgi",
-    "pages/newsDetail/newsDetail"
+    "pages/newsDetail/newsDetail",
+    "pages/hqbDetail/hqbDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
