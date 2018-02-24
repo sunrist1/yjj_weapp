@@ -12,9 +12,9 @@
       <view class="type_item {{fundType=='8'?'fc_orange':''}}" bindtap="changeFundType" data-type='8'>保本型</view>
     </scroll-view>
 
-    <!-- <view class='search_btn'>
-      <image src='{{searchImgUrl}}' mode='scaleToFill'></image>
-    </view> -->
+     <view class='search_btn'>
+      <image src='{{searchImgUrl}}' bindtap='toSearch' mode='scaleToFill'></image>
+    </view> 
   </view>
 
   <!-- 基金列表  -->

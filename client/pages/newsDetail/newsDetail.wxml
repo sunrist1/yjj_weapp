@@ -4,4 +4,6 @@
 <view class='page'>
   <!-- 这里data中article为bindName -->
   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+  <go-to-home></go-to-home>
 </view>

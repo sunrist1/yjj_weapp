@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "基金搜索",
+  "usingComponents": {
+    "search-item": "/pages/components/search-item/search-item"
+  }
+}

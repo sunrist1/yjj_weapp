@@ -160,4 +160,6 @@
     <text class='content'>{{fundInfo.data.RISK_RETURN}}</text>
   </view>
   
+
+  <go-to-home></go-to-home>
 </view>

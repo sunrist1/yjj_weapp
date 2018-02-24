@@ -1,0 +1,14 @@
+/* pages/components/search_item/search-item.wxss */
+
+.search-item{
+  border-bottom:1rpx solid #455D7A;
+  padding:24rpx 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  color:#455D7A;
+}
+
+.key_word{
+  color:#F95959;
+}

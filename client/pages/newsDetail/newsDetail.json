@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "资讯分享"
+  "navigationBarTitleText": "资讯分享",
+  "usingComponents": {
+    "go-to-home": "/pages/components/go-to-home/go-to-home"
+  }
 }

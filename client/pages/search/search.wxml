@@ -1,0 +1,54 @@
+<!--pages/search/search.wxml-->
+<view class='page'>
+  <view class='search_bar'>
+    <view class='input_bar'>
+      <image src='{{searchImgUrl}}' mode='scaleToFill'></image>
+      <input bindinput="searchFund" value='{{inputValue}}' confirm-type="search" placeholder="基金名称、代码"/>
+    </view>
+
+    <text class='clear_btn' bindtap='clear_input'>清除</text>
+  </view>
+
+  <!--搜索历史  -->
+  <view class='history_box'>
+    <view class='opera_bar'>
+      <view class='left'>
+        <image src='{{clockImgUrl}}' mode='scaleToFill'></image>
+        搜索历史
+      </view>
+      <view class='right' bindtap='clearStorage'>清除搜索记录</view>
+    </view>
+
+    <view class='history_list'>
+      <block wx:for="{{searchHistory}}" wx:key="*this">
+        <search-item fundName="{{item.fundName}}" fundCode="{{item.fundCode}}" key=""></search-item>
+      </block>
+
+      <view wx:if="{{searchHistory.length == 0}}" style='text-align:center;'>
+        <image class='emptyImg' src='{{emptyImgUrl}}' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门搜索  -->
+  <view class='hot_box'>
+    <view class='top'>
+      <image src='{{hotImgUrl}}' mode='scaleToFill'></image>
+      热门搜索
+    </view>
+    <view class='item_list'>
+      <view class='hot_fund_item' bindtap='toDetail' data-code="260108">景顺长城新兴成长</view>
+      <view class='hot_fund_item' bindtap='toDetail' data-code="040008">华安策略优选</view>
+      <view class='hot_fund_item' bindtap='toDetail' data-code="002425">金鹰元溪C</view>
+      <view class='hot_fund_item' bindtap='toDetail' data-code="260101">景顺长城优选</view>
+    </view>
+  </view>
+
+  <!--搜索结果  -->
+   <view class='result_box'  wx:if="{{showSearch}}">
+    <block wx:for="{{resultList}}" wx:key="*this">
+       <search-item fundName="{{item.fundShortName}}" fundCode="{{item.fundCode}}" key="{{searchKey}}"></search-item>
+    </block>
+    <view wx:if="{{resultList.length == 0}}" style='text-align:center;'>暂无匹配数据</view>
+  </view> 
+</view>

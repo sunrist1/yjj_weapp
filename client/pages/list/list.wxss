@@ -14,6 +14,8 @@ page{
   height: 80rpx;
   background-color: #fff;
   width:100%;
+  padding-right: 12%;
+  box-sizing: border-box;
 }
 .scroll_box{
    white-space: nowrap;
@@ -38,6 +40,7 @@ page{
   box-sizing: border-box;
   box-shadow: -2rpx -2rpx 3rpx 3rpx #eee;
   height: 80rpx;
+  background-color: #fff;
 }
 .search_btn image{
   width: 60rpx;

@@ -1,0 +1,122 @@
+ /* =============== 搜索框 begin ===============  */
+.search_bar{
+  background-color: #455D7A;
+  padding:15rpx 25rpx;
+  font-size: 0;
+}
+
+.search_bar .input_bar{
+  background-color: #fff;
+  border-radius: 15rpx;
+  padding:10rpx;
+  display: inline-flex;
+  align-items: center;
+  width:82%;
+  vertical-align: middle;
+}
+
+.search_bar .input_bar image{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.search_bar .input_bar input{
+  width:80%;
+  font-size: 32rpx;
+  margin-left: 15rpx;
+}
+
+.search_bar .clear_btn{
+  display: inline-block;
+  width:15%;
+  color:#fff;
+  text-align: center;
+  font-size: 36rpx;
+  vertical-align: middle;
+}
+
+ /* =============== 搜索框 end ===============  */
+
+
+
+/* =============== 搜索历史 begin ===============  */
+.history_box{
+  padding:25rpx;
+  color:#455D7A;
+}
+.history_box .opera_bar{
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #455D7A;
+  padding-bottom: 15rpx;
+}
+.history_box .opera_bar .left image{
+  height: 42rpx;   
+  width:42rpx;
+  vertical-align: middle;
+}
+.history_box .opera_bar .right{
+  border-radius: 25rpx;
+  height: 40rpx;
+  line-height: 30rpx;
+  padding: 5rpx 15rpx;
+  box-sizing: border-box;
+  border:2rpx solid #455D7A;
+  color: #455D7A;
+}
+
+.emptyImg{
+  width:100rpx;
+  margin-top:20rpx;
+}
+
+/* =============== 搜索历史 end ===============  */
+
+/* =============== 热门搜索 begin ===============  */
+.hot_box{
+  margin-top:30rpx;
+}
+.hot_box .top{
+  font-size: 36rpx;
+  text-align: center;
+  color:#455D7A;
+}
+.hot_box .top image{
+  width:60rpx;
+  height: 60rpx;
+  vertical-align: text-bottom;
+}
+
+.hot_box .item_list{
+  padding:20rpx;
+  line-height:40rpx;
+}
+.hot_box .item_list .hot_fund_item{
+  border:1px solid #455D7A;
+  color: #455D7A;
+  font-size: 30rpx;
+  border-radius: 25rpx;
+  display: inline-block;
+  padding:8rpx 15rpx;
+  margin-right: 20rpx;
+  margin-bottom:15rpx;
+}
+
+/* =============== 热门搜索 end ===============  */
+
+
+/* =============== 搜索结果 begin ===============  */
+.result_box{
+  height: 100%;
+  background-color:#fff;
+  position:fixed;
+  top:100rpx;
+  left:0;
+  width:100%;
+  padding:15rpx;
+  box-sizing:border-box;
+  overflow:auto;
+}
+
+/* =============== 搜索结果 end ===============  */

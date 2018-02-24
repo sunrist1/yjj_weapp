@@ -1,0 +1,4 @@
+<view class='search-item' bindtap='toDetail'>
+  <rich-text nodes="{{fundNameNodes}}"></rich-text>
+  <rich-text nodes="{{fundCodeNodes}}"></rich-text>
+</view>

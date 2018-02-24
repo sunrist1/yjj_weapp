@@ -1,0 +1,20 @@
+/* pages/components/gotoHome/go-to-home.wxss */
+.go-to-home-icon{
+  border:5rpx solid #707070;
+  border-radius: 50%;
+  height: 80rpx;
+  width:80rpx;
+  position: fixed;
+  right: 30rpx;
+  bottom: 40rpx;
+  background-color: #fff;
+  line-height: 80rpx;
+  justify-content:center;
+  display: flex;
+  align-items: center;
+}
+
+.go-to-home-icon .icon-image{
+  width:85%;
+  height: 85%;
+}

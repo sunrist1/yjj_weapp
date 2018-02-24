@@ -163,5 +163,14 @@ Page({
     wx.navigateTo({
       url: '/pages/publicFundDetail/publicFundDetail?id=' + code
     })
+  },
+
+  /**
+   * 跳转到搜索页
+   */
+  toSearch:function(){
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
   }
 })

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "基金详情页"
+  "navigationBarTitleText": "基金详情页",
+  "usingComponents": {
+    "go-to-home": "/pages/components/go-to-home/go-to-home"
+  }
 }

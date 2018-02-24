@@ -1,0 +1,4 @@
+<!--pages/components/gotoHome/go-to-home.wxml-->
+<view class='go-to-home-icon'>
+  <image src="{{iconUrl}}" mode='scaleToFill' class="icon-image" bindtap='gotoHome'/>
+</view>
