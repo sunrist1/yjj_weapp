@@ -2,7 +2,8 @@
 <!-- 引入模板 -->
 <import src="../../wxParse/wxParse.wxml"/>
 <view class='page'>
-  <!-- 这里data中article为bindName -->
+  <text class='title'>{{articleTitle}}</text>
+  <text class='time'>{{articleCreateTime}}</text>
   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 
   <go-to-home></go-to-home>

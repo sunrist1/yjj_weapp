@@ -53,11 +53,25 @@ Component({
         key: 'searchHistory',
         success: function (res) {
           var list = res.data;
-          console.log(res)
           list.push({
             fundName: fundName,
-            fundCode: code
+            fundCode: code,
+            addTime:new Date().getTime()
           })
+
+          list.sort(function (a, b) {
+            return b.addTime - a.addTime;
+          })
+
+          // 搜索历史去重
+          list.forEach(function (el, index) {
+            for (var i = index + 1; i < list.length; i++) {
+              if (list[index].fundCode == list[i].fundCode) {
+                list.splice(i, 1)
+              }
+            }
+          })
+          console.log(list)
           wx.setStorage({
             key: "searchHistory",
             data: list
@@ -66,7 +80,8 @@ Component({
         fail:function(res){
           var list = [{
             fundName:fundName,
-            fundCode:code
+            fundCode: code,
+            addTime: new Date().getTime()
           }]
           wx.setStorage({
             key: "searchHistory",

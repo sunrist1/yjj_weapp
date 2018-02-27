@@ -106,13 +106,14 @@ Page({
           return;
         }
         if (!that.data.increseData){
+          var length = chartData.length;
           if (that.data.isCurrency) {
             that.setData({
-              increseData: chartData[0].WAN
+              increseData: ((chartData[length - 1].WAN - chartData[length - 2].WAN) / chartData[length - 2].WAN * 100).toFixed(2)
             })
           } else {
             that.setData({
-              increseData: chartData[0].NAVVALUE
+              increseData: ((chartData[length - 1].NAVVALUE - chartData[length - 2].NAVVALUE) / chartData[length - 2].NAVVALUE * 100).toFixed(2)
             })
           }
         }
@@ -129,11 +130,11 @@ Page({
             dateList = [];
 
         chartData.forEach(function(el){
-          valueList.push(el.DATEVALUE)
+          dateList.push(el.DATEVALUE)
           if (that.data.isCurrency){
-            dateList.push(el.WAN)
+            valueList.push(el.WAN)
           }else{
-            dateList.push(el.NAVVALUE)
+            valueList.push(el.NAVVALUE)
           }
         })
 
@@ -143,6 +144,13 @@ Page({
           chartName = '万份收益';
           yTitle = '万份收益走势';
         }
+        var valueListCache = [];
+        valueList.forEach(function(el){
+          valueListCache.push(el)
+        })
+        var sortList = valueList.sort(function(a,b){
+          return a - b;
+        })
         lineChart = new wxCharts({
           canvasId: 'lineCanvas_1',
           type: 'line',
@@ -151,7 +159,7 @@ Page({
           // background: '#f5f5f5',
           series: [{
             name: chartName,
-            data: dateList,
+            data: valueListCache,
             color:'#455D7A',
             format: function (val, name) {
               return val.toFixed(2);
@@ -165,7 +173,7 @@ Page({
             format: function (val) {
               return val.toFixed(2);
             },
-            min: 0
+            min: sortList[0]-0.02
           },
           width: windowWidth,
           height: 200,
@@ -201,6 +209,7 @@ Page({
    */
   getFundInfo:function(){
     var that = this;
+    util.showBusy('正在加载...');
     wx.request({
       url: config.service.fundDetailUrl, //仅为示例，并非真实的接口地址
       method: 'post',
@@ -209,6 +218,9 @@ Page({
       },
       header: {
         'content-type': 'application/json' // 默认值
+      },
+      complete:function(res){
+        wx.hideToast()
       },
       success: function (res) {
         console.log(res.data.data)
@@ -237,6 +249,7 @@ Page({
    */
   getShengouRate:function(){
     var that = this;
+    util.showBusy('正在加载...');
     wx.request({
       url: config.service.fundShengouRate, //仅为示例，并非真实的接口地址
       method: 'post',
@@ -246,6 +259,9 @@ Page({
       },
       header: {
         'content-type': 'application/json' // 默认值
+      },
+      complete: function (res) {
+        wx.hideToast()
       },
       success: function (res) {
         that.setData({
@@ -260,6 +276,7 @@ Page({
    */
   getShuhuiRate: function () {
     var that = this;
+    util.showBusy('正在加载...');
     wx.request({
       url: config.service.fundShuhuiRate, //仅为示例，并非真实的接口地址
       method: 'post',
@@ -269,6 +286,9 @@ Page({
       },
       header: {
         'content-type': 'application/json' // 默认值
+      },
+      complete: function (res) {
+        wx.hideToast()
       },
       success: function (res) {
         that.setData({

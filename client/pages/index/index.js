@@ -144,6 +144,7 @@ Page({
     return {
       title: "亿基金",
       path: 'pages/index/index',
+      imageUrl: `${config.service.yjjhost}/public/mobile/images/weapp/share_index.jpg`,
       success: function (res) {
         wx.showToast({
           title: '分享成功',
@@ -159,5 +160,12 @@ Page({
         })
       }
     }
+  },
+
+  /**
+   * 打开app错误提示
+   */
+  launchAppError: function (e) {
+    console.log(e.detail.errMsg)
   }
 })

@@ -1,5 +1,5 @@
 <view class='page'>
-  <view class="title {{increseData>=0?'increase':'decrease'}}">
+  <view class="title {{increseData>=0||fundInfo.interest.APR>=0?'increase':'decrease'}}">
     <view class='fund_name'>
       <text class='name'>{{fundInfo.data.F_INFO_FULLNAME}}</text>
       <text class='code'>({{fundInfo.fundCode}})</text>
@@ -7,12 +7,12 @@
 
     <view class='data'>
       <view class='item'>
-        <text class='sm_letter'>{{isCurrency?'万份收益':'净值走势'}}({{fundInfo.nav.PRICE_DATE}})</text>
+        <text class='sm_letter'>{{isCurrency?'万份收益':'净值'}}({{isCurrency?fundInfo.interest.F_INFO_ENDDATE:fundInfo.nav.PRICE_DATE}})</text>
         <text class='big_letter'>{{isCurrency?fundInfo.interest.WAN:fundInfo.nav.NAV}}</text>
       </view>
       <view class='item'>
         <text class='sm_letter'>{{isCurrency?'七日年化收益':'日涨幅'}}</text>
-        <text class='big_letter'>{{increseData}}<text class='per'>%</text></text>
+        <text class='big_letter'>{{isCurrency?fundInfo.interest.APR:increseData}}<text class='per'>%</text></text>
       </view>
     </view>
 
@@ -66,7 +66,7 @@
           </view> 
           <view>
             <text>基金类型</text>
-            <text>{{fundInfo.data.F_INFO_TYPE}}</text>
+            <text>{{fundInfo.data.F_INFO_FIRSTINVESTTYPE}}</text>
           </view> 
           <view>
             <text>基金状态</text>
@@ -74,7 +74,7 @@
           </view>
           <view>
             <text>状态日期</text>
-            <text>2017-02-08</text>
+            <text>{{fundInfo.nav.PRICE_DATE}}</text>
           </view> 
           <view>
             <text>分红方式</text>
@@ -85,7 +85,7 @@
             <text>{{fundInfo.data.F_INFO_SETUPDATE}}</text>
           </view> 
           <view>
-            <text>托管人银行</text>
+            <text>托管人名称</text>
             <text>{{fundInfo.data.F_INFO_CUSTODIANBANK}}</text>
           </view> 
         </view>
@@ -141,7 +141,7 @@
             </view>
             <view class='item'>
               <text>基金经理</text>
-              <text><block wx:for="{{fundInfo.managers}}" wx:key="*this" wx:item="item">{{item.MAN}}、</block></text>
+              <text><block wx:for="{{fundInfo.managers}}" wx:key="index" wx:item="item">{{item.MAN}}   </block></text>
             </view>
           </view>
         </view>

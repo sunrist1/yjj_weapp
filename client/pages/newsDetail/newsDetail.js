@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    articleTitle:"",
+    articleCreateTime:""
   },
 
   /**
@@ -32,6 +33,7 @@ Page({
       key: 'articleContent',
       success: function (res) {
         var article = res.data.articleContent;
+        console.log(res.data)
         /**
         * WxParse.wxParse(bindName , type, data, target,imagePadding)
         * 1.bindName绑定的数据名(必填)
@@ -41,6 +43,16 @@ Page({
         * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
         */
         WxParse.wxParse('article', 'html', article, that, 5);
+
+        // 设置导航标题
+        // wx.setNavigationBarTitle({
+        //   title: res.data.title
+        // })
+
+        that.setData({
+          articleTitle:res.data.title,
+          articleCreateTime:res.data.time
+        })
       }
     })
   },
@@ -79,7 +91,7 @@ Page({
   onShareAppMessage: function () {
     var that = this;
     return {
-      title: "亿基金",
+      title: that.data.articleTitle,
       path: 'pages/newsDetail/newsDetail',
       success: function (res) {
         wx.showToast({

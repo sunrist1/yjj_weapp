@@ -20,7 +20,7 @@
     </view>
 
     <view class='history_list'>
-      <block wx:for="{{searchHistory}}" wx:key="*this">
+      <block wx:for="{{searchHistory}}" wx:key="index">
         <search-item fundName="{{item.fundName}}" fundCode="{{item.fundCode}}" key=""></search-item>
       </block>
 
@@ -46,7 +46,7 @@
 
   <!--搜索结果  -->
    <view class='result_box'  wx:if="{{showSearch}}">
-    <block wx:for="{{resultList}}" wx:key="*this">
+    <block wx:for="{{resultList}}" wx:key="index">
        <search-item fundName="{{item.fundShortName}}" fundCode="{{item.fundCode}}" key="{{searchKey}}"></search-item>
     </block>
     <view wx:if="{{resultList.length == 0}}" style='text-align:center;'>暂无匹配数据</view>

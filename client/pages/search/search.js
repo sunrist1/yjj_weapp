@@ -38,10 +38,18 @@ Page({
    */
   onShow: function () {
     var that = this;
+    that.setData({
+      searchHistory:[]
+    })
     wx.getStorage({
       key: 'searchHistory',
       success: function (res) {
         var list = res.data;
+        list.sort(function(a,b){
+          return b.addTime - a.addTime;
+        })
+        
+        console.log(list)
         that.setData({
           searchHistory: list
         })
@@ -141,13 +149,13 @@ Page({
   /**
    * 跳转详情页
    */
-  toDetail: function (e) {
-    var code = e.currentTarget.dataset.code;
-    console.log(code);
-    wx.navigateTo({
-      url: '/pages/publicFundDetail/publicFundDetail?id=' + code
-    })
-  },
+  // toDetail: function (e) {
+  //   var code = e.currentTarget.dataset.code;
+  //   console.log(code);
+  //   wx.navigateTo({
+  //     url: '/pages/publicFundDetail/publicFundDetail?id=' + code
+  //   })
+  // },
 
   /**
    * 清除历史记录

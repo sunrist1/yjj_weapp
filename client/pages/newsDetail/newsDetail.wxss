@@ -7,3 +7,15 @@
   width:100%;
   box-sizing: border-box;
 }
+
+.title{
+  font-size: 40rpx;
+  color:#233142;
+}
+
+.time{
+  display: block;
+  font-size: 28rpx;
+  color:#455D7A;
+  margin:15rpx 0;
+}
