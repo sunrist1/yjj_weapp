@@ -154,7 +154,7 @@ Page({
         lineChart = new wxCharts({
           canvasId: 'lineCanvas_1',
           type: 'line',
-          categories:  valueList,
+          categories: dateList,
           animation: true,
           // background: '#f5f5f5',
           series: [{

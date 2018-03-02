@@ -91,17 +91,18 @@ Page({
    */
   getPubFundList: function (clean=0){
     var that = this;
+    var reqData = {
+      pageIndex: that.data.pageIndex,
+      pageSize: that.data.pageSize,
+      isQueryAll: that.data.isQueryAll,
+      sort: that.data.sort,
+      type: that.data.fundType,
+      key: that.data.key
+    }
     wx.request({
       url: config.service.publicFundListUrl, //仅为示例，并非真实的接口地址
       method:'post',
-      data: {
-        pageIndex: that.data.pageIndex,
-        pageSize: that.data.pageSize,
-        isQueryAll: that.data.isQueryAll,
-        sort: that.data.sort,
-        type: that.data.fundType,
-        key: that.data.key
-      },
+      data: reqData,
       header: {
         'content-type': 'application/json' // 默认值
       },

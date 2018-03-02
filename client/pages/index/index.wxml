@@ -21,7 +21,7 @@
     <view class='tab_card'>起存门槛低</view>
   </view>
 </view>
- <button open-type="launchApp" app-parameter="net.skjr.lcs" binderror="launchAppError">打开APP</button> 
+  <!-- <button open-type="launchApp" app-parameter="123" binderror="launchAppError">打开APP</button>   -->
 <!-- 推荐基金  -->
 <view class='index_fund_list'>
   <view class='card_title'>优选基金</view>

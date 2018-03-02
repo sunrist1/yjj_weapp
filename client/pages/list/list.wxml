@@ -35,9 +35,9 @@
 
     <scroll-view class='scroll_box' style='height:{{publicFundList.length * 102}}rpx' scroll-x scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
       <view class='title'>
-        <view>最新净值</view>
+        <view>{{fundType=='41'?'万份收益':'最新净值'}}</view>
         <view bindtap="changeSortType" data-sort="dayInterest">
-          日涨跌
+          {{fundType=='41'?'七日年化':'日涨跌'}}
           <image src="{{sort=='dayInterest'?activeSortImgSrc:sortImgSrc}}"></image>
         </view>
         <view bindtap="changeSortType" data-sort="oneMInterest">
@@ -61,12 +61,12 @@
         <view class='item'>
           <!-- 基金净值  -->
           <view class='netWorth_box'>
-            <text class='netWorth'>{{item.netWorth}}</text>
+            <text class='netWorth'>{{fundType=='41'?item.wanMoney:item.netWorth}}</text>
             <text class='netWorthDate'>{{item.updateDateTimeUTC}}</text>
           </view>
 
           <!--日涨跌  -->
-          <view class="{{item.dayInterest >= 0?'fc_orange':'fc_green'}}"> {{item.dayInterest}}% </view>
+          <view class="{{item.dayInterest >= 0?'fc_orange':'fc_green'}}">{{item.dayInterest}}% </view>
 
           <!--月涨跌  -->
           <view class="{{item.oneMInterest >= 0?'fc_orange':'fc_green'}}"> {{item.oneMInterest}}% </view>
